@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cl_registro_inicio,access_cl_registro_inicio,model_cl_registro_inicio,base.group_user,1,1,1,1

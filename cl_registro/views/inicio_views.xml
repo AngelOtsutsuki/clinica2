@@ -1,0 +1,93 @@
+<odoo>
+    <record id="view_inicio_form" model="ir.ui.view">
+        <field name="name">Inicio Form</field>
+        <field name="model">cl_registro.inicio</field>
+        <field name="arch" type="xml">
+            <form string="Inicio">
+                <!-- Enlazar el archivo CSS externo -->
+                <link rel="stylesheet" href="/cl_registro/static/css/clinica_style.css"/>
+
+                <!-- Contenedor principal con fondo de imagen -->
+                <div class="clinica-background">
+                    <div class="clinica-container">
+                        <!-- Título de Bienvenida -->
+                        <h1 class="clinica-title">Bienvenido a Clínica CURAH</h1>
+
+                        <!-- Botones de Acceso Rápido -->
+                        <div class="row" style="margin-top: 20px; text-align: center; padding: 0 15%;">
+                            <!-- Botón para Inventario -->
+                            <div class="col-6">
+                                <div class="clinica-button">
+                                    <button name="dummy_inventario" type="object" class="btn w-100 d-flex flex-column align-items-center">
+                                        <img src="/cl_registro/static/img/inventario1.png" alt="Inventario"/>
+                                        <span>Inventario</span>
+                                        <span class="button-subtext">Gestión de inventarios</span>
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <p>Gestión de inventarios</p>
+                                        <p>Ver stock</p>
+                                        <p>Realizar pedidos</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botón para Expediente -->
+                            <div class="col-6">
+                                <div class="clinica-button">
+                                    <button name="abrir_expediente" type="object" class="btn w-100 d-flex flex-column align-items-center">
+                                        <img src="/cl_registro/static/img/expedientes1.png" alt="Expediente"/>
+                                        <span>Expediente</span>
+                                        <span class="button-subtext">Consulta de expedientes</span>
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <p>Consultar expedientes</p>
+                                        <p>Agregar notas</p>
+                                        <p>Historial médico</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Descripción de la Clínica -->
+                        <div class="clinica-description">
+                            <p>
+                                La Clínica Universitaria de la UNAH (CURAH) es un centro de salud dedicado a brindar atención médica de calidad
+                                a la comunidad universitaria y al público en general. Nuestro objetivo es promover la salud y el bienestar
+                                a través de servicios médicos integrales y personal altamente calificado.
+                            </p>
+                        </div>
+
+                        <!-- Imagen del Campus -->
+                        <div style="margin-top: 30px; text-align: center;">
+                            <img src="/cl_registro/static/img/campus_unah.png" alt="Campus UNAH" style="width: 100%; max-width: 800px; height: auto; border-radius: 10px;"/>
+                        </div>
+
+                        <!-- Pie de Página -->
+                        <div class="clinica-footer">
+                            <!-- Información de Contacto -->
+                            <div style="margin-bottom: 10px;">
+                                <p style="margin: 0;">Contacto: 9522-1209 | <a href="mailto:clinica.ayuda@unah.hn">clinica.ayuda@unah.hn</a></p>
+                            </div>
+
+                            <!-- Logos -->
+                            <div class="clinica-logos">
+                                <img src="/cl_registro/static/img/unah_logo1.png" alt="Logo UNAH"/>
+                                <img src="/cl_registro/static/img/ingenieria_logo1.png" alt="Logo Ingeniería"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inicio" model="ir.actions.act_window">
+        <field name="name">Inicio</field>
+        <field name="res_model">cl_registro.inicio</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_inicio_form"/>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_inicio" name="Inicio" action="action_inicio" sequence="1" />
+</odoo>

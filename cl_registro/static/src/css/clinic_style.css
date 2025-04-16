@@ -1,0 +1,128 @@
+/* clinica_style.css */
+.clinica-background {
+    background-image: url('/cl_registro/static/img/fondo_clinica1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.clinica-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clinica-title {
+    font-size: 40px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.clinica-description {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 0 15% 30px;
+    line-height: 1.6;
+}
+
+.clinica-button {
+    background-color: #00509e;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.clinica-button:hover {
+    background-color: #003366;
+}
+
+.clinica-button img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.clinica-button span {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.clinica-button .button-subtext {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.clinica-button .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #00509e;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.clinica-button:hover .dropdown-content {
+    display: block;
+}
+
+.clinica-footer {
+    background-color: rgba(248, 249, 250, 0.9);
+    padding: 20px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.clinica-footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.clinica-footer a {
+    color: #00509e;
+    text-decoration: underline;
+}
+
+.clinica-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.clinica-logos img {
+    width: 150px;
+    height: auto;
+}
