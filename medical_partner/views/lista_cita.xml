@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de árbol para citas médicas -->
+        <record id="view_cita_medica_list" model="ir.ui.view">
+            <field name="name">cita.medica.list</field>
+            <field name="model">cita.medica</field>
+            <field name="arch" type="xml">
+                <list string="Citas Médicas" decoration-info="state=='draft'" decoration-success="state=='confirmed'" decoration-muted="state=='cancelled'">
+                    <field name="name"/>
+                    <field name="partner_id3"/>
+                    <field name="doctor_id"/>
+                    <field name="date"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- Vista de calendario para citas médicas
+        <record id="view_cita_medica_calendar" model="ir.ui.view">
+            <field name="name">cita.medica.calendar</field>
+            <field name="model">cita.medica</field>
+            <field name="arch" type="xml">
+                <calendar string="Citas Médicas" date_start="date" color="doctor_id" mode="month" quick_add="False">
+                    <field name="name"/>
+                    <field name="partner_id3"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record> -->
+        
+        <!-- Vista de búsqueda para citas médicas -->
+        <record id="view_cita_medica_search" model="ir.ui.view">
+            <field name="name">cita.medica.search</field>
+            <field name="model">cita.medica</field>
+            <field name="arch" type="xml">
+                <search string="Buscar Citas">
+                    <field name="name"/>
+                    <field name="partner_id3"/>
+                    <field name="doctor_id"/>
+                    <field name="date"/>
+                    <filter string="Borrador" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Confirmada" name="confirmed" domain="[('state', '=', 'confirmed')]"/>
+                    <filter string="Realizada" name="done" domain="[('state', '=', 'done')]"/>
+                    <filter string="Cancelada" name="cancelled" domain="[('state', '=', 'cancelled')]"/>
+                    <group expand="0" string="Agrupar Por">
+                        <filter string="Paciente" name="group_by_patient" context="{'group_by': 'partner_id3'}"/>
+                        <filter string="Doctor" name="group_by_doctor" context="{'group_by': 'doctor_id'}"/>
+                        <filter string="Estado" name="group_by_state" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

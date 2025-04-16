@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_form_patient" model="ir.ui.view">
+        <field name="name">res.partner.form.patient</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Añadimos campos médicos en la pestaña de notas internas -->
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Información Médica" name="medical_info" invisible="not is_patient">
+                    <group>
+                        <group string="Información Básica">
+                            <field name="is_patient"/>
+                            <field name="patient_id" invisible="not is_patient"/>
+                            <field name="gender" invisible="not is_patient"/>
+                            <field name="birth_date" invisible="not is_patient"/>
+                            <field name="blood_type" invisible="not is_patient"/>
+                        </group>
+                        <group string="Información Adicional" invisible="not is_patient">
+                            <field name="allergies"/>
+                            <field name="medications"/>
+                            <field name="height"/>
+                            <field name="weight"/>
+                        </group>
+                    </group>
+                    <group string="Historial Médico" invisible="not is_patient">
+                        <!-- <field name="medical_notes" nolabel="1"/> -->
+                    </group>
+                </page>
+            </xpath>
+            
+            <!-- Añadimos el campo is_patient en la vista de formulario principal -->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_patient" invisible="1"/>
+            </xpath>
+            
+            <!-- Añadimos un botón para crear citas médicas -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_medical_appointments" 
+                        type="object" 
+                        class="oe_stat_button" 
+                        icon="fa-calendar" 
+                        invisible="not is_patient">
+                    <field name="appointment_count" string="Citas" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Vista de árbol para pacientes -->
+    <record id="view_patient_list" model="ir.ui.view">
+        <field name="name">res.partner.patient.list</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <list string="Pacientes">
+                <field name="patient_id"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="birth_date"/>
+                <field name="gender"/>
+                <field name="blood_type"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Vista de búsqueda para pacientes -->
+    <record id="view_patient_filter" model="ir.ui.view">
+        <field name="name">res.partner.patient.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Pacientes">
+                <field name="name" string="Paciente" filter_domain="['|',('name','ilike',self),('patient_id','ilike',self)]"/>
+                <field name="patient_id"/>
+                <field name="gender"/>
+                <field name="blood_type"/>
+                <separator/>
+                <filter string="Pacientes" name="patients_only" domain="[('is_patient','=',True)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Género" name="gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Tipo de Sangre" name="blood_type" context="{'group_by': 'blood_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Acción para ver pacientes -->
+    <record id="action_medical_patients" model="ir.actions.act_window">
+        <field name="name">Pacientes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'default_is_patient': 1, 'search_default_patients_only': 1}</field>
+        <field name="domain">[('is_patient','=',True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo paciente
+            </p>
+        </field>
+    </record>
+</odoo>
+
+

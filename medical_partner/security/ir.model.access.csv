@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cita_medica_user,cita.medica.user,model_cita_medica,medical_partner.group_medical_user,1,1,1,0
+access_cita_medica_manager,cita.medica.manager,model_cita_medica,medical_partner.group_medical_manager,1,1,1,1
+access_inicio_medico_user,inicio.medico.user,model_inicio_medico,medical_partner.group_medical_user,1,0,0,0
+access_inicio_medico_manager,inicio.medico.manager,model_inicio_medico,medical_partner.group_medical_manager,1,1,1,1
+access_res_partner_medical_user,res.partner.medical.user,base.model_res_partner,medical_partner.group_medical_user,1,1,1,0
+access_medical_patient_user,medical.patient.user,model_medical_patient,medical_partner.group_medical_user,1,1,1,0
+access_medical_patient_manager,medical.patient.manager,model_medical_patient,medical_partner.group_medical_manager,1,1,1,1

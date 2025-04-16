@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú principal -->
+        <menuitem id="menu_medical_root" 
+                  name="Medical" 
+                  sequence="10" 
+                  groups="medical_partner.group_medical_user,medical_partner.group_medical_manager"/>
+        
+        <!-- Submenús -->
+        <menuitem id="menu_medical_appointments" 
+                  name="Citas" 
+                  parent="menu_medical_root" 
+                  
+                  sequence="20" 
+                  
+                  /> <!--action="action_cita_medica"  groups="medical_partner.group_medical_user,medical_partner.group_medical_manager"-->
+        
+        <menuitem id="menu_medical_doctors" 
+                  name="Médicos" 
+                  parent="menu_medical_root" 
+                  
+                  sequence="30" 
+                  groups="medical_partner.group_medical_user,medical_partner.group_medical_manager"/>
+                  <!--action="action_inicio_medico" -->
+        
+        <!-- Menú de configuración -->
+        <menuitem id="menu_medical_config" 
+                  name="Configuración" 
+                  parent="menu_medical_root" 
+                  sequence="100" 
+                  groups="medical_partner.group_medical_manager"/>
+    </data>
+    </odoo>

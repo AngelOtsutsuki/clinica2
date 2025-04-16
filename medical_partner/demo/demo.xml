@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Datos de demostración para el módulo -->
+        <!-- Crear usuarios de demostración -->
+        <record id="demo_doctor_user" model="res.users">
+            <field name="name">Dr. Juan Pérez</field>
+            <field name="login">doctor@example.com</field>
+            <field name="password">doctor</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+        </record>
+        
+        <record id="demo_patient_user" model="res.users">
+            <field name="name">María García</field>
+            <field name="login">paciente@example.com</field>
+            <field name="password">paciente</field>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+        </record>
+        
+        <!-- Crear perfiles de demostración -->
+        <record id="demo_doctor_profile" model="user.profile">
+            <field name="name">Dr. Juan Pérez</field>
+            <field name="user_id" ref="demo_doctor_user"/>
+            <field name="profile_type">doctor</field>
+            <field name="specialty">Cardiología</field>
+            <field name="license_number">MED-12345</field>
+        </record>
+        
+        <record id="demo_patient_profile" model="user.profile">
+            <field name="name">María García</field>
+            <field name="user_id" ref="demo_patient_user"/>
+            <field name="profile_type">patient</field>
+            <field name="patient_number">PAC-001</field>
+        </record>
+        
+        <!-- Crear citas de demostración -->
+        <record id="demo_cita_1" model="cita.medica">
+            <field name="name">CITA-001</field>
+            <field name="patient_id" model="res.partner" eval="obj().search([('user_id', '=', ref('demo_patient_user'))])[0].id"/>
+            <field name="doctor_id" model="res.partner" eval="obj().search([('user_id', '=', ref('demo_doctor_user'))])[0].id"/>
+            <field name="date" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d %H:%M:00')"/>
+            <field name="state">confirmed</field>
+            <field name="notes">Consulta de rutina</field>
+        </record>
+        
+        <record id="demo_cita_2" model="cita.medica">
+            <field name="name">CITA-002</field>
+            <field name="patient_id" model="res.partner" eval="obj().search([('user_id', '=', ref('demo_patient_user'))])[0].id"/>
+            <field name="doctor_id" model="res.partner" eval="obj().search([('user_id', '=', ref('demo_doctor_user'))])[0].id"/>
+            <field name="date" eval="(datetime.now() + timedelta(days=10)).strftime('%Y-%m-%d %H:%M:00')"/>
+            <field name="state">draft</field>
+            <field name="notes">Revisión de exámenes</field>
+        </record>
+    </data>
+</odoo>
