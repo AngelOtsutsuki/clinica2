@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem id="menu_user_profiles_root" 
+                  name="User Profiles" 
+                  sequence="10" 
+                  groups="medical_partner.group_user_profile_user,medical_partner.group_user_profile_manager"/>
+        
+        <!-- Profiles Menu -->
+        <menuitem id="menu_user_profiles" 
+                  name="Profiles" 
+                  parent="menu_user_profiles_root" 
+                  sequence="10"/>
+        
+        <!-- User Profiles List Menu -->
+        <menuitem id="menu_user_profiles_list" 
+                  name="User Profiles" 
+                  parent="menu_user_profiles" 
+                  
+                  sequence="10"/>
+                  <!-- action="action_user_profiles" -->
+        
+        <!-- Configuration Menu -->
+        <menuitem id="menu_user_profiles_config" 
+                  name="Configuration" 
+                  parent="menu_user_profiles_root" 
+                  sequence="100" 
+                  groups="medical_partner.group_user_profile_manager"/>
+    </data>
+</odoo>
+

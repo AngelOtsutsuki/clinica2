@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Templates -->
+        <template id="user_profile_layout" name="User Profile Layout">
+            <t t-call="web.layout">
+                <t t-set="head">
+                    <t t-call-assets="web.assets_common" t-js="false"/>
+                    <t t-call-assets="web.assets_frontend" t-js="false"/>
+                    <t t-call-assets="web.assets_common" t-css="false"/>
+                    <t t-call-assets="web.assets_frontend" t-css="false"/>
+                </t>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <t t-raw="0"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
