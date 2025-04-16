@@ -1,0 +1,30 @@
+<odoo>
+    <!-- Menú principal (si no está definido en otro lugar) -->
+    <menuitem id="menu_parent_clinica" name="Medicamentos"/>
+
+    <!-- Menú Medicamentos -->
+    <menuitem id="menu_medicamento" name="Medicamentos" parent="menu_parent_clinica"/>
+
+    <!-- Acción de ventana para medicamentos -->
+    <record id="action_medicamento" model="ir.actions.act_window">
+        <field name="name">Medicamentos</field>
+        <field name="res_model">cl_stock.medicamento</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Asocia la acción al menú -->
+    <menuitem id="menu_medicamento_action" parent="menu_medicamento" action="action_medicamento"/>
+
+    <!-- Menú Movimientos -->
+    <menuitem id="menu_movimiento" name="Movimientos" parent="menu_parent_clinica"/>
+
+    <!-- Acción de ventana para movimientos -->
+    <record id="action_movimiento" model="ir.actions.act_window">
+        <field name="name">Movimientos</field>
+        <field name="res_model">cl_stock.movimiento</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Asocia la acción al submenú de movimientos -->
+    <menuitem id="menu_movimiento_action" parent="menu_movimiento" action="action_movimiento"/>
+</odoo>

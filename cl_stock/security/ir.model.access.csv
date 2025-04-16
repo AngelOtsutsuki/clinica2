@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medicamento_user,access.medicamento.user,model_cl_stock_medicamento,base.group_user,1,1,1,1
+access_movimiento_user,access.movimiento.user,model_cl_stock_movimiento,base.group_user,1,1,1,1

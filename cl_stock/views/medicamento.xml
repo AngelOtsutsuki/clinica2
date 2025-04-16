@@ -1,0 +1,101 @@
+<odoo>
+    <record id="view_medicamento_form" model="ir.ui.view">
+        <field name="name">medicamento.form</field>
+        <field name="model">cl_stock.medicamento</field>
+        <field name="arch" type="xml">
+            <form string="Medicamento">
+                <sheet>
+                    <!-- Título del Formulario -->
+                    <h1 style="text-align: center; margin-top: 20px; margin-bottom: 30px;">Agregar Medicamento</h1>
+
+                    <!-- Grupo de Campos con Iconos y Etiquetas -->
+                    <group name="agregar" string="Datos del Medicamento">
+                        <!-- Nombre Genérico -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_nombre.png" alt="Nombre" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Nombre Genérico:</span>
+                                <field name="nombre_gen" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Presentación -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_presentacion.png" alt="Presentación" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Presentación:</span>
+                                <field name="presentacion" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Nombre Comercial -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_nombre_comercial.png" alt="Nombre Comercial" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Nombre Comercial:</span>
+                                <field name="nombre_com" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Cantidad -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_cantidad.png" alt="Cantidad" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Cantidad en Inventario:</span>
+                                <field name="cantidad" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Fecha de Caducidad -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_calendario.png" alt="Fecha de Caducidad" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Fecha de Caducidad:</span>
+                                <field name="fecha_caducidad" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Sin Caducidad -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl_stock/static/img/icono_infinito.png" alt="Sin Caducidad" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Sin Caducidad:</span>
+                                <field name="sin_caducidad" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <!-- Pestaña de Historial -->
+                    <notebook>
+                        <page string="Historial">
+                            <field name="movimiento_ids">
+                                <list>
+                                    <field name="fecha"/>
+                                    <field name="tipo"/>
+                                    <field name="cantidad"/>
+                                    <field name="cantidad_final"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de Lista (sin cambios) -->
+    <record id="view_medicamento_list" model="ir.ui.view">
+        <field name="name">medicamento.list</field>
+        <field name="model">cl_stock.medicamento</field>
+        <field name="arch" type="xml">
+            <list string="Medicamentos">
+                <field name="nombre_gen"/>
+                <field name="nombre_com"/>
+                <field name="presentacion"/>
+                <field name="cantidad"/>
+                <field name="sin_caducidad"/>
+                <field name="fecha_caducidad"/>
+            </list>
+        </field>
+    </record>    
+</odoo>
