@@ -1,0 +1,78 @@
+<odoo>
+    <!-- Vista de Formulario para Equipos -->
+    <record id="view_equipo_form" model="ir.ui.view">
+        <field name="name">equipo.form</field>
+        <field name="model">cl_equipos.equipo</field>
+        <field name="arch" type="xml">
+            <form string="Equipo">
+                <sheet>
+                    <!-- Título del Formulario -->
+                    <h1 style="text-align: center; margin-top: 20px; margin-bottom: 30px;">Agregar Equipo Médico</h1>
+
+                    <!-- Grupo de Campos con Iconos y Etiquetas -->
+                    <group name="añadir" string="Datos del Equipo">
+                        <!-- Nombre -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl__equipos/static/img/icono_nombre.png" alt="Nombre" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Nombre:</span>
+                                <field name="nombre" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Estado -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl__equipos/static/img/icono_estado.png" alt="Estado" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Estado:</span>
+                                <field name="estado" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Número de Inventario -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl__equipos/static/img/icono_inventario.png" alt="Número de Inventario" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Número de Inventario:</span>
+                                <field name="numero_inv" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Fecha de Último Mantenimiento -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl__equipos/static/img/icono_calendario.png" alt="Fecha de Último Mantenimiento" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Último Mantenimiento:</span>
+                                <field name="fecha_ultimo_mantenimiento" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+
+                        <!-- Ubicación -->
+                        <group>
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="/cl__equipos/static/img/icono_ubicacion.png" alt="Ubicación" style="width: 24px; height: 24px; margin-right: 10px;"/>
+                                <span style="margin-right: 10px; font-weight: bold;">Ubicación:</span>
+                                <field name="ubicacion" style="flex-grow: 1;"/>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de Lista para Equipos -->
+    <record id="view_equipo_list" model="ir.ui.view">
+        <field name="name">equipo.list</field>
+        <field name="model">cl_equipos.equipo</field>
+        <field name="arch" type="xml">
+            <list string="Equipos">
+                <field name="numero_inv"/>
+                <field name="nombre"/>
+                <field name="estado"/>
+                <field name="ubicacion"/>
+                <field name="fecha_ultimo_mantenimiento"/>
+            </list>
+        </field>
+    </record>
+</odoo>

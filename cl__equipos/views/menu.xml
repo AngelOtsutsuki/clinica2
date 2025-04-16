@@ -1,0 +1,17 @@
+<odoo>
+    <!-- Menú principal (si no está definido en otro lugar) -->
+    <menuitem id="menu_parent_clinica" name="Equipos"/>
+
+    <!-- Menú Equipos -->
+    <menuitem id="menu_equipo" name="Equipos" parent="menu_parent_clinica"/>
+
+    <!-- Acción de ventana para equipos -->
+    <record id="action_equipo" model="ir.actions.act_window">
+        <field name="name">Equipos</field>
+        <field name="res_model">cl_equipos.equipo</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Asocia la acción al menú -->
+    <menuitem id="menu_equipo_action" parent="menu_equipo" action="action_equipo"/>
+</odoo>

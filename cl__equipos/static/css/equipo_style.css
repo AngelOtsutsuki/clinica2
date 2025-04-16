@@ -1,0 +1,64 @@
+/* equipo_style.css */
+
+/* Estilos generales del formulario */
+.equipo-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del formulario */
+.equipo-form h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+/* Grupo de campos */
+.equipo-form group {
+    margin-bottom: 20px;
+}
+
+/* Estilos para cada campo */
+.equipo-form .field-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.equipo-form .field-container img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.equipo-form .field-container span {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+}
+
+.equipo-form .field-container field {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Estilos para la lista de equipos */
+.equipo-list {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.equipo-list tree {
+    font-size: 14px;
+}
+
+.equipo-list tree field {
+    padding: 10px;
+}
